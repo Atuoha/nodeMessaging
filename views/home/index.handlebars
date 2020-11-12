@@ -7,13 +7,19 @@
                     <strong>Broadcast <i class="fa fa-comment"></i></strong>
                                 <span class="badge badge-pill badge-warning text-small"> Active</span>
                         </h1>
-                        <p class="small-text">nodeChat is developed using nodeJs and few modules!</p>
+                        <p class="small-text  ">nodeChat is developed using nodeJs and few modules!</p>
                 </div>
 
                          {{!-- Remove this in real chat app --}}
                                 <form action="" method="post">
-                                    <div class="col-md-4"><i class="fa fa-user"></i>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter Receiver...">
+                                    <div class="col-md-5">
+                                        <div class="input-group ">                                              
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Receiver...">                       
+                                            <div class="input-group-prepend">
+                                                <span  class="input-group-text"><span class="fa fa-user"></span></span>
+                                            </div>											
+                                        </div>
+                                        
                                     </div>
                             {{!--  --}}
 

@@ -6,6 +6,19 @@ const Handlebars = require('Handlebars');
 const path = require('path')
 const bodyParser = require('body-parser')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const http =  require('http').Server(app)
+const io  = require('socket.io')(http)
+const mongoose = require('mongoose');
+const mongoDBURI = 'mongodb://localhost:27017/nodeChat'
+
+
+mongoose.connect(mongoDBURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(db=>{
+    console.log('connected to mongodb...')
+})
+.catch(err=>{
+    console.log(`Error ${err}`)
+})
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -35,8 +48,16 @@ app.set('view engine', 'handlebars')
 const home = require('./route/home')
 app.use('/', home)
 
+io.on('connection', socket=>{
+    console.log('User connected....')
+})
 
 
-app.listen(port, ()=>{
+// app.listen(port, ()=>{
+//     console.log(`Listening to port ${port}`);
+// });
+
+
+http.listen(port, ()=>{
     console.log(`Listening to port ${port}`);
 });

@@ -1,5 +1,7 @@
+let socket = io()
 $(document).ready( ()=>{
     getMessage();
+
 
     $('form').submit(function(e){
         e.preventDefault()
@@ -12,6 +14,7 @@ $(document).ready( ()=>{
         if(msg !== '' && name != ''){
             console.log(data)
             postMessage(data)  
+            $('form').reset();
         }else{
             console.log('Empty')
         }
@@ -19,6 +22,8 @@ $(document).ready( ()=>{
     })
 
     function getMessage(){
+
+        
         $.ajax({
             url: '/message',
             type: 'GET',
@@ -53,6 +58,7 @@ $(document).ready( ()=>{
  
 
     function displayMessage(message){
+
         let response = 
             `
             <div class="chat-message right" style="float:right;background-color:#1e88e5;color:white;">
@@ -71,5 +77,7 @@ $(document).ready( ()=>{
     }
 
 })
+
+        socket.on('message', addMessage)    
 
 

@@ -1,0 +1,55 @@
+
+<div class="container">
+       <div class="col-md-6 mx-auto ">
+          <div class="chat-container"> 
+                <div class="jumbotron bg-secondary  text-center text-white">
+                    <h1>
+                    <strong>Broadcast <i class="fa fa-comment"></i></strong>
+                                <span class="badge badge-pill badge-warning text-small"> Active</span>
+                        </h1>
+                        <p class="small-text">nodeChat is developed using nodeJs and few modules!</p>
+                </div>
+
+                         {{!-- Remove this in real chat app --}}
+                                <form action="" method="post">
+                                    <div class="col-md-4"><i class="fa fa-user"></i>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter Receiver...">
+                                    </div>
+                            {{!--  --}}
+
+                        <div class="chat">
+                            <div class="chat-wrapper">
+                                
+                                 {{!-- <div class="chat-message right" style="float:right;background-color:#1e88e5;color:white;">
+                                    <img class="rounded-circle" width="30" src="/uploads/default.png"alt="img">    
+                                    <b>You:</b> <span class="msg">Hi</span> <br> 
+                                    <span class="text-small" style="float:right"><sub>2 mins ago</sub></span>
+                                </div> --}}
+
+
+                                {{!-- <div class="chat-message" style="background-color:white">
+                                    <img class="rounded-circle" width="30" src="/uploads/profiles.png"alt="img">    
+                                    <b>John:</b> <span class="white-text">Hey</span><br>
+                                    <span class="text-small" style="float:right"><sub>1 mins ago</sub></span>
+                                </div> --}}
+
+
+                            </div>
+                        </div>
+            </div> 
+            
+             <footer class="app-footer">
+                {{!-- <form action="" method="post"> --}}
+                    <div class="input-group">
+                        <input type="text" id="msg" name="message" class="form-control" placeholder="Start typing..." autofocus >
+                        <div class="input-append">                            
+                            <button class="btn btn-primary"   type="submit">Send</button>
+                        </div>
+                    </div> 
+                 </form>   
+            </footer>
+
+
+       </div>
+    </div>
+</div>

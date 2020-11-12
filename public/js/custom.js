@@ -14,7 +14,7 @@ $(document).ready( ()=>{
         if(msg !== '' && name != ''){
             console.log(data)
             postMessage(data)  
-            $('form').reset();
+            $('form').trigger("reset");
         }else{
             error_alert()
             console.log('Empty')

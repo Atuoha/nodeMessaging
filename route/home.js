@@ -3,10 +3,11 @@ const app = express()
 const router = express.Router()
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
+const Message = require('../model/Message')
 
-let message = [
+// let message = [
     
-];
+// ];
 
 
 
@@ -21,13 +22,26 @@ router.get('/', (req, res)=>{
 
 
 router.get('/message', (req, res)=>{
-    return res.send(message)
+    Message.find()
+    .then(message=>{
+        return res.send(message)
+    })
+    .catch(err=> console.log('Error'))
+    // return res.send(message)
 })
 
 router.post('/create_msg', (req, res)=>{
-    message.push(req.body)
-    res.sendStatus(200)
-    io.emit('message', req.body)
+    
+    const newMessage = new Message(req.body)
+    newMessage.save()
+    .then(saved=>{
+        // message.push(req.body)
+        res.sendStatus(200)
+        io.emit('message', req.body)
+    })
+    .catch(err=> console.log(`Error due to ${err}`))
+
+    
 
 })
 

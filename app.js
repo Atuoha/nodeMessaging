@@ -9,7 +9,7 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const http =  require('http').Server(app)
 const io  = require('socket.io')(http)
 const mongoose = require('mongoose');
-const mongoDBURI = 'mongodb://localhost:27017/nodeChat'
+const mongoDBURI = 'mongodb://localhost:27017/nodeMsg'
 
 
 mongoose.connect(mongoDBURI, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -38,6 +38,7 @@ app.engine('handlebars', handlebars(
 //setting bodyParsers
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+
 
 
 //setting handlebars

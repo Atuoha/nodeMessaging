@@ -16,6 +16,7 @@ $(document).ready( ()=>{
             postMessage(data)  
             $('form').reset();
         }else{
+            error_alert()
             console.log('Empty')
         }
 
@@ -78,6 +79,25 @@ $(document).ready( ()=>{
 
 })
 
-        socket.on('message', addMessage)    
+socket.on('message', 'addMessage')    
+
+function error_alert(){
+    let error = $('.error')
+    error.fadeIn('slow')
+    error.attr('class', 'alert alert-danger error');
+    error.html('Inputs are not meant to be empty!')
+    
+    setTimeout( ()=>{
+        clear_error()
+    }, 3000)
+}
+
+function clear_error(){
+    let error_content = $('.alert')
+    if(error_content){
+        error_content.fadeOut('slow')
+    }
+    
+}
 
 

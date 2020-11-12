@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const newChat = new Schema({
+const newMessage = new Schema({
 
     name:{
         type: String
@@ -12,9 +12,9 @@ const newChat = new Schema({
     },
 
     date:{
-        type:Date
+        type:Date,
         default: new Date()
     }
 })
 
-module.exports = mongoose.model('chats', newChat)
+module.exports = mongoose.model('chats', newMessage)
